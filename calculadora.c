@@ -1,35 +1,26 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <stdio_ext.h>
-#include "agt.h"
+#include <stdio.h>
+#include <stdbool.h>
 
-int main() {
-    int a, b, op;
+// Escreva um programa em C em duas partes, uma função int digito(int n) que retorna o dígito mais significativo de um número, e uma função main() que solicite um número ao usuário e informe o dígito mais significativo desse número utilizando uma chamada à função definida.
 
-    print("Me diga dois números!");
-    scan(a);
-    scan(b); 
-    print("Qual operação deseja realizar?  1.Adição, 2.Subtração, 3.Divisão, 4.Multiplicação");
-    scan(op);
-    while(op < 1 | op > 4){
-        print("Número errado! Escreva dnv! Qual operação deseja realizar?  1.Adição, 2.Subtração, 3.Divisão, 4.Multiplicação");  
-        scan(op); 
+// Exemplo: no número 816, o dígito mais significante é 8.
+
+// Dica: você pode isolar os dígitos de um número usando a divisão inteira e o resto de uma divisão.
+
+int digito(int n){
+    while(n>=10){
+        n/= 10;
     }
-    
-    switch(op){
-        case 1: {
-            print("A soma é: ", a + b);
-        }break;
-        case 2: {
-            print("A subtração é: ", a - b);
-        }break;
-        case 3: {
-            print("A divisão é: ", a / b);
-        }break;
-        case 4: {
-            print("A multiplicação é: ", a * b);
-        }break;
-    }
+    return n;
+}
 
-  return EXIT_SUCCESS;
+
+int main(){
+    int n;
+    printf("Digite um número: ");
+    scanf("%d", &n);
+
+    printf("O digito mais significativo é: %d\n", digito(n));   
+    return EXIT_SUCCESS;
 }
