@@ -9,8 +9,10 @@ int soma(int num1, int num2){
 
 int main(){
     
-    int total;
-    total = soma(10, 20);
+    int total, a, b;
+    scanf("%d", &a);
+    scanf("%d", &b);
+    total = soma(a, b);
     printf("%d\n", total);
     
     return EXIT_SUCCESS;
